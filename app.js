@@ -21,8 +21,8 @@ const userSchema=new mongoose.Schema({
     password: String
 })
 
-const secret="iamlearningauthentication.";
-userSchema.plugin(encrypt,{secret:secret,encryptedFields:['password']});
+
+userSchema.plugin(encrypt,{secret:process.env.SECRET,encryptedFields:['password']});
 
 const UserModel=mongoose.model('Secret',userSchema);
 
